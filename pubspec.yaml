@@ -1,0 +1,32 @@
+name: grape_vine_disease_detection_ai
+description: "A Flutter app that detects grapevine diseases using AI"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # TensorFlow Lite core package (used to run your model)
+  tflite_flutter: ^0.12.1
+
+
+  # Image processing + image picker
+  image: ^4.1.7
+  image_picker: ^1.0.7
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/grapevine_disease_model.tflite
