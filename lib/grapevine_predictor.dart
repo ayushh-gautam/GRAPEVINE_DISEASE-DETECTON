@@ -32,12 +32,12 @@ class _GrapevinePredictorState extends State<GrapevinePredictor> {
 
   Future<void> _loadModel() async {
     try {
-      // ✅ Do NOT include "assets/" here — Flutter handles that
+     
       _interpreter =
           await Interpreter.fromAsset('assets/grapevine_disease_model.tflite');
-      debugPrint("✅ Model loaded successfully!");
+      debugPrint("Model loaded successfully!");
     } catch (e) {
-      debugPrint("❌ Failed to load model: $e");
+      debugPrint("Failed to load model: $e");
     }
   }
 
@@ -81,10 +81,10 @@ class _GrapevinePredictorState extends State<GrapevinePredictor> {
 
     var output = List.filled(_labels.length, 0.0).reshape([1, _labels.length]);
 
-    // Run inference
+    // Running the inference
     _interpreter!.run(input, output);
 
-    // ✅ Cast to double list to avoid _TypeError
+   
     final List<double> scores = List<double>.from(output[0]);
     final maxScore = scores.reduce((a, b) => a > b ? a : b);
     final maxIndex = scores.indexOf(maxScore);
